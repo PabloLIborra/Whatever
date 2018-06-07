@@ -1,0 +1,63 @@
+﻿@model IEnumerable<WhateverGenNHibernate.EN.Whatever.RetoEN>
+
+@{
+    ViewBag.Title = "Retos";
+}
+
+<h2>Retos</h2>
+<div class="row center-align">
+    <div class="col s12 m12 l12">
+        <p>
+            @Html.ActionLink("Nuevo reto", "Create", "Reto", new {}, new { @class = "waves-effect white-text waves-light btn" })
+            @Html.ActionLink("Mis retos", "List", "Reto", new { }, new { @class = "waves-effect white-text waves-light btn" })
+        </p>
+
+        @if (Model.Count() > 0)
+        {
+            foreach (var item in Model)
+            {
+                <div class="col s12">
+                    <div class="card horizontal">
+                        <div class="card-image">
+                            @if (item.Imagen != "/Images/Uploads/")
+                            {
+                                <img src="@Html.DisplayFor(modelItem => item.Imagen)" height="180" />
+                            }
+                            else
+                            {
+                                <img src="~/Images/retos.jpg" height="180" />
+                            }
+                        </div>
+                        <div class="card-stacked">
+                            <div class="card-content" style="text-align: left;">
+                                <h4 class="header">@Html.ActionLink(item.Titulo, "Details", "Reto", new { id = item.ID }, new { })</h4>
+                                <p>@Html.DisplayFor(modelItem => item.Descripcion)</p>
+                            </div>
+                            <div class="card-action" style="text-align: left;">
+                                <b>Tipo:</b> @Html.DisplayFor(modelItem => item.Tipo) -
+                                <b>Precio:</b> @Html.DisplayFor(modelItem => item.Precio)
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+        else
+        {
+            <div class="preloader-wrapper big active" style="margin-top: 20px;">
+                <div class="spinner-layer spinner-blue-only">
+                    <div class="circle-clipper left">
+                        <div class="circle"></div>
+                    </div>
+                    <div class="gap-patch">
+                        <div class="circle"></div>
+                    </div>
+                    <div class="circle-clipper right">
+                        <div class="circle"></div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+

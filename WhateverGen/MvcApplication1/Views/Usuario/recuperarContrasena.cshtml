@@ -1,0 +1,103 @@
+﻿@model WhateverGenNHibernate.EN.Whatever.UsuarioEN
+
+@{
+    ViewBag.Title = "recuperarContrasena";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>recuperarContrasena</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>UsuarioEN</legend>
+
+        @Html.HiddenFor(model => model.ID)
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Nombre)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Nombre)
+            @Html.ValidationMessageFor(model => model.Nombre)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Edad)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Edad)
+            @Html.ValidationMessageFor(model => model.Edad)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Sexo)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Sexo)
+            @Html.ValidationMessageFor(model => model.Sexo)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Facebook)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Facebook)
+            @Html.ValidationMessageFor(model => model.Facebook)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Instagram)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Instagram)
+            @Html.ValidationMessageFor(model => model.Instagram)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Twitter)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Twitter)
+            @Html.ValidationMessageFor(model => model.Twitter)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Contrasena)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Contrasena)
+            @Html.ValidationMessageFor(model => model.Contrasena)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Email)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Email)
+            @Html.ValidationMessageFor(model => model.Email)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Foto)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Foto)
+            @Html.ValidationMessageFor(model => model.Foto)
+        </div>
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

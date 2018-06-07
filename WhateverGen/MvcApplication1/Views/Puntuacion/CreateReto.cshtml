@@ -1,0 +1,46 @@
+﻿@model MvcApplication1.Models.Puntuacion
+
+@{
+    ViewBag.Title = "Puntuar Reto";
+}
+
+<h2>Puntuar Reto</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+    
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Actividad)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Actividad)
+            @Html.ValidationMessageFor(model => model.Actividad)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Puntos)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Puntos)
+            @Html.ValidationMessageFor(model => model.Puntos)
+        </div>
+        <div class="editor-field">
+            @Html.HiddenFor(model => model.idReto)
+            @Html.ValidationMessageFor(model => model.idReto)
+        </div>
+
+
+        <p>
+            <input type="submit" value="Crear" class="waves-effect waves-light btn"  />
+        </p>
+}
+
+<div>
+    @Html.ActionLink("Volver a la lista", "Index", "Reto", new { },  new { @class = "waves-effect waves-light white-text btn marme" })
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

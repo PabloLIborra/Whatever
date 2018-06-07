@@ -1,0 +1,93 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+    <head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <meta charset="utf-8" />
+        <title>@ViewBag.Title</title>
+        <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+        <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        @Styles.Render("~/Content/css")
+        @Styles.Render("~/Content/materializecss")
+        @Scripts.Render("~/bundles/modernizr")
+        <style>
+            html, body {
+                    position: absolute;
+    padding-bottom: 70px;
+    min-height: 100%;
+    width: 100%;
+            }
+            h1,h2,h3,h4{
+                margin-top: 5px;
+            }
+            footer{
+                height: 65px;
+                position: absolute;
+                bottom: 0px;
+                width: 100%;
+            }
+            .marme{
+                margin-top: 5px;
+            }
+        </style>
+    </head>
+    <body>
+        <nav>
+            <div class="nav-wrapper">
+                <div class="brand-logo">@Html.ActionLink("su logotipo aquí", "Index", "Home")</div>
+                <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+                <ul id="nav-mobile" class="right hide-on-med-and-down">
+                    <li>@Html.ActionLink("Eventos", "Index", "Evento")</li>
+                    <li>@Html.ActionLink("Retos", "Index", "Reto")</li>
+                    <li>@Html.ActionLink("Gymkanas", "Index", "Gymkana")</li>
+                    @if (!Request.IsAuthenticated) {
+                        <li>@Html.ActionLink("Acceder", "Login", "Account")</li>
+                    } else {
+                        <li>@Html.ActionLink(User.Identity.Name, "Details", "Usuario", new { id = 0 }, htmlAttributes: new { @class = "username", title = "Administrar" })</li>
+                        <li>@using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm" }))
+                            {
+                                @Html.AntiForgeryToken()
+                                <a href="javascript:document.getElementById('logoutForm').submit()">Cerrar sesión</a>
+                            }
+                        </li>
+                    }
+                </ul>
+                <ul class="side-nav" id="mobile-demo">
+                    <li>@Html.ActionLink("Eventos", "Index", "Evento")</li>
+                    <li>@Html.ActionLink("Retos", "Index", "Reto")</li>
+                    <li>@Html.ActionLink("Gymkanas", "Index", "Gymkana")</li>
+                    @if (!Request.IsAuthenticated)
+                    {
+                        <li>@Html.ActionLink("Acceder", "Login", "Account")</li>
+                    }
+                    else
+                    {
+                        <li>@Html.ActionLink(User.Identity.Name, "Details", "Usuario", new { id = 0 }, htmlAttributes: new { @class = "username", title = "Administrar" })</li>
+                        <li>
+                            @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm" }))
+                        {
+                            @Html.AntiForgeryToken()
+                            <a href="javascript:document.getElementById('logoutForm').submit()">Cerrar sesión</a>
+                        }
+                    </li>
+                    }
+                </ul>
+            </div>
+        </nav>
+        <main class="container">
+            @RenderSection("featured", required: false)
+            <section class="content-wrapper main-content clear-fix">
+                @RenderBody()
+            </section>
+        </main>
+        <footer class="page-footer">
+             <div class="container">
+                <p>&copy; @DateTime.Now.Year - Whatever.events</p>
+            </div>
+        </footer>
+
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/materializecss")
+        @RenderSection("scripts", required: false)
+    </body>
+</html>

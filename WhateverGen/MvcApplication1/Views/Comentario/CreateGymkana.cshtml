@@ -1,0 +1,40 @@
+﻿@model MvcApplication1.Models.Comentario
+
+@{
+    ViewBag.Title = "Crear comentario en Gymkana";
+}
+
+<h2>Crear comentario en Gymkana</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Comentario</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Texto)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Texto)
+            @Html.ValidationMessageFor(model => model.Texto)
+        </div>
+        <div class="editor-field">
+            @Html.HiddenFor(model => model.idGymkana)
+            @Html.ValidationMessageFor(model => model.idGymkana)
+        </div>
+
+        <p>
+            <input type="submit" value="Crear"  class="waves-effect waves-light btn"/>
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Volver a la Gymkana", "Details", "Gymkana", new { id = Model.idGymkana }, new { @class = "waves-effect waves-light white-text btn marme" })
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

@@ -1,0 +1,432 @@
+<?xml version="1.0" encoding="utf-8"?>
+		<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+		  <PropertyGroup>
+		    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+		    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+		    <ProductVersion>8.0.30703</ProductVersion>
+		    <SchemaVersion>2.0</SchemaVersion>
+		    <ProjectGuid>{66C66636-FD6A-4A3F-A7C5-FE88BBA117AF}</ProjectGuid>
+		    <OutputType>Library</OutputType>
+		    <AppDesignerFolder>Properties</AppDesignerFolder>
+		    <RootNamespace>WhateverGenNHibernate</RootNamespace>
+		    <AssemblyName>WhateverGenNHibernate</AssemblyName>
+		    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+		    <FileAlignment>512</FileAlignment>
+		    <PublishUrl>publish\</PublishUrl>
+		    <Install>true</Install>
+		    <InstallFrom>Disk</InstallFrom>
+		    <UpdateEnabled>false</UpdateEnabled>
+		    <UpdateMode>Foreground</UpdateMode>
+		    <UpdateInterval>7</UpdateInterval>
+		    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+		    <UpdatePeriodically>false</UpdatePeriodically>
+		    <UpdateRequired>false</UpdateRequired>
+		    <MapFileExtensions>true</MapFileExtensions>
+		    <ApplicationRevision>0</ApplicationRevision>
+		    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+		    <IsWebBootstrapper>false</IsWebBootstrapper>
+		    <UseApplicationTrust>false</UseApplicationTrust>
+		    <BootstrapperEnabled>true</BootstrapperEnabled>
+		  </PropertyGroup>
+		  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+		    <DebugSymbols>true</DebugSymbols>
+		    <DebugType>full</DebugType>
+		    <Optimize>false</Optimize>
+		    <OutputPath>bin\Debug\</OutputPath>
+		    <DefineConstants>DEBUG;TRACE</DefineConstants>
+		    <ErrorReport>prompt</ErrorReport>
+		    <WarningLevel>4</WarningLevel>
+		  </PropertyGroup>
+		  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+		    <DebugType>pdbonly</DebugType>
+		    <Optimize>true</Optimize>
+		    <OutputPath>bin\Release\</OutputPath>
+		    <DefineConstants>TRACE</DefineConstants>
+		    <ErrorReport>prompt</ErrorReport>
+		    <WarningLevel>4</WarningLevel>
+		  </PropertyGroup>
+		<ItemGroup>
+		    <Reference Include="Castle.DynamicProxy2, Version=2.1.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+		      <SpecificVersion>False</SpecificVersion>
+		      <HintPath>..\WhateverGenNHibernate\AppLib\Castle.DynamicProxy2.dll</HintPath>
+		    </Reference>
+		    <Reference Include="LinFu.DynamicProxy, Version=1.0.3.14911, Culture=neutral, PublicKeyToken=62a6874124340d6e, processorArchitecture=MSIL">
+		      <SpecificVersion>False</SpecificVersion>
+		      <HintPath>..\WhateverGenNHibernate\AppLib\LinFu.DynamicProxy.dll</HintPath>
+		    </Reference>
+		    <Reference Include="NHibernate, Version=2.1.2.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+		      <SpecificVersion>False</SpecificVersion>
+		      <HintPath>..\WhateverGenNHibernate\AppLib\NHibernate.dll</HintPath>
+		    </Reference>
+		    <Reference Include="NHibernate.ByteCode.Castle, Version=2.1.2.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+		      <SpecificVersion>False</SpecificVersion>
+		      <HintPath>..\WhateverGenNHibernate\AppLib\NHibernate.ByteCode.Castle.dll</HintPath>
+		    </Reference>
+		    <Reference Include="NHibernate.ByteCode.LinFu, Version=2.1.2.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+		      <SpecificVersion>False</SpecificVersion>
+		      <HintPath>..\WhateverGenNHibernate\AppLib\NHibernate.ByteCode.LinFu.dll</HintPath>
+		    </Reference>
+		    <Reference Include="System" />
+		    <Reference Include="System.Core">
+		      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+		    </Reference>
+		    <Reference Include="System.Data.SqlServerCe, Version=3.5.1.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+		    <Reference Include="System.Transactions" />
+		    <Reference Include="System.Xml.Linq">
+		      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+		    </Reference>
+		    <Reference Include="System.Data.DataSetExtensions">
+		      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+		    </Reference>
+		    <Reference Include="System.Data" />
+		    <Reference Include="System.Xml" />
+		</ItemGroup>
+		
+		<ItemGroup>
+		    <Content Include="..\WhateverGenNHibernate\AppLib\Antlr3.Runtime.dll" />
+		    <Content Include="..\WhateverGenNHibernate\AppLib\Castle.DynamicProxy2.dll" />
+		    <Content Include="..\WhateverGenNHibernate\AppLib\Iesi.Collections.dll" />
+		    <Content Include="..\WhateverGenNHibernate\AppLib\LinFu.DynamicProxy.dll" />
+		    <Content Include="..\WhateverGenNHibernate\AppLib\log4net.dll" />
+		    <Content Include="..\WhateverGenNHibernate\AppLib\NHibernate.ByteCode.Castle.dll" />
+		    <Content Include="..\WhateverGenNHibernate\AppLib\NHibernate.ByteCode.LinFu.dll" />
+		    <Content Include="..\WhateverGenNHibernate\AppLib\NHibernate.dll" />
+		    <Content Include="..\WhateverGenNHibernate\AppLib\nunit.core.dll" />
+		    <Content Include="..\WhateverGenNHibernate\AppLib\nunit.framework.dll" />
+  		</ItemGroup>
+  		
+		<ItemGroup>
+			<Compile Include="NHibernateHelper.cs" />
+		    <Compile Include="Utils\Util.cs" />
+		    <Compile Include="Exceptions\ModelException.cs"/>
+		    <Compile Include="Exceptions\DataLayerException.cs"/>
+		    
+	<Compile Include="CAD\BasicCAD.cs"/>
+	<Compile Include="CP\BasicCP.cs"/>
+	<Compile Include="EN\Whatever\UsuarioEN.cs" />
+	<Compile Include="CEN\Whatever\UsuarioCEN.cs" />
+	<Compile Include="CAD\Whatever\IUsuarioCAD.cs" />
+	<Compile Include="CAD\Whatever\UsuarioCAD.cs" />
+	<Compile Include="CP\Whatever\UsuarioCP.cs" />
+			<Compile Include="CEN\Whatever\UsuarioCEN_CambiarFoto.cs" />
+			
+			<Compile Include="CEN\Whatever\UsuarioCEN_CambiarContrasena.cs" />
+			
+			<Compile Include="CEN\Whatever\UsuarioCEN_CambiarCorreo.cs" />
+			
+			<Compile Include="CEN\Whatever\UsuarioCEN_ConsultarUsuario.cs" />
+			
+			
+			
+			
+			
+			
+			<Compile Include="CEN\Whatever\UsuarioCEN_RecuperarContasena.cs" />
+			
+			
+			<Compile Include="CEN\Whatever\UsuarioCEN_Login.cs" />
+			
+			<Compile Include="CP\Whatever\UsuarioCP_HacerAdmin.cs" />
+			
+			<Compile Include="CEN\Whatever\UsuarioCEN_Registro.cs" />
+			
+			<Compile Include="CEN\Whatever\UsuarioCEN_ModificarRedesSociales.cs" />
+			
+			<Compile Include="CP\Whatever\UsuarioCP_BorrarUsuario.cs" />
+			
+			
+			<Compile Include="CP\Whatever\UsuarioCP_DeshacerAdmin.cs" />
+			
+	<Compile Include="EN\Whatever\RetoEN.cs" />
+	<Compile Include="CEN\Whatever\RetoCEN.cs" />
+	<Compile Include="CAD\Whatever\IRetoCAD.cs" />
+	<Compile Include="CAD\Whatever\RetoCAD.cs" />
+	<Compile Include="CP\Whatever\RetoCP.cs" />
+			<Compile Include="CEN\Whatever\RetoCEN_VerReto.cs" />
+			
+			
+			
+			
+			
+			
+			<Compile Include="CEN\Whatever\RetoCEN_CrearReto.cs" />
+			
+			<Compile Include="CEN\Whatever\RetoCEN_ModificarReto.cs" />
+			
+			<Compile Include="CP\Whatever\RetoCP_BorrarReto.cs" />
+			
+			
+	<Compile Include="EN\Whatever\GymkanaEN.cs" />
+	<Compile Include="CEN\Whatever\GymkanaCEN.cs" />
+	<Compile Include="CAD\Whatever\IGymkanaCAD.cs" />
+	<Compile Include="CAD\Whatever\GymkanaCAD.cs" />
+	<Compile Include="CP\Whatever\GymkanaCP.cs" />
+			<Compile Include="CP\Whatever\GymkanaCP_AnadirPaso.cs" />
+			
+			<Compile Include="CEN\Whatever\GymkanaCEN_VerPasos.cs" />
+			
+			
+			
+			<Compile Include="CP\Whatever\GymkanaCP_CrearGymkana.cs" />
+			
+			<Compile Include="CP\Whatever\GymkanaCP_ModificarGymkana.cs" />
+			
+			<Compile Include="CP\Whatever\GymkanaCP_BorrarGymkana.cs" />
+			
+			
+			
+			
+			
+	<Compile Include="EN\Whatever\ComentarioEN.cs" />
+	<Compile Include="CEN\Whatever\ComentarioCEN.cs" />
+	<Compile Include="CAD\Whatever\IComentarioCAD.cs" />
+	<Compile Include="CAD\Whatever\ComentarioCAD.cs" />
+	<Compile Include="CP\Whatever\ComentarioCP.cs" />
+			
+			
+			
+			
+			<Compile Include="CEN\Whatever\ComentarioCEN_ModificarComentario.cs" />
+			
+			
+			
+			
+			
+			<Compile Include="CP\Whatever\ComentarioCP_CrearComentarioParaEvento.cs" />
+			
+			<Compile Include="CP\Whatever\ComentarioCP_CrearComentarioParaReto.cs" />
+			
+			<Compile Include="CP\Whatever\ComentarioCP_BorrarUnComentario.cs" />
+			
+			<Compile Include="CP\Whatever\ComentarioCP_BorrarComentariosReto.cs" />
+			
+			
+			
+			
+			
+			<Compile Include="CP\Whatever\ComentarioCP_BorrarComentariosEvento.cs" />
+			
+			
+			<Compile Include="CP\Whatever\ComentarioCP_CrearComentarioParaGymkana.cs" />
+			
+			<Compile Include="CP\Whatever\ComentarioCP_BorrarComentariosGymkana.cs" />
+			
+			
+			
+	<Compile Include="EN\Whatever\AdminEN.cs" />
+	<Compile Include="CEN\Whatever\AdminCEN.cs" />
+	<Compile Include="CAD\Whatever\IAdminCAD.cs" />
+	<Compile Include="CAD\Whatever\AdminCAD.cs" />
+	<Compile Include="CP\Whatever\AdminCP.cs" />
+			
+			
+			
+			
+			
+	<Compile Include="EN\Whatever\ReporteEN.cs" />
+	<Compile Include="CEN\Whatever\ReporteCEN.cs" />
+	<Compile Include="CAD\Whatever\IReporteCAD.cs" />
+	<Compile Include="CAD\Whatever\ReporteCAD.cs" />
+	<Compile Include="CP\Whatever\ReporteCP.cs" />
+			<Compile Include="CEN\Whatever\ReporteCEN_ConsultarReporte.cs" />
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			<Compile Include="CP\Whatever\ReporteCP_ReportarReto.cs" />
+			
+			<Compile Include="CP\Whatever\ReporteCP_ReportarEvento.cs" />
+			
+			
+			
+			<Compile Include="CP\Whatever\ReporteCP_BorrarReportesEvento.cs" />
+			
+			<Compile Include="CP\Whatever\ReporteCP_BorrarReportesReto.cs" />
+			
+			
+			
+			<Compile Include="CP\Whatever\ReporteCP_BorrarUnReporte.cs" />
+			
+			
+			
+			<Compile Include="CP\Whatever\ReporteCP_ReportarGymkana.cs" />
+			
+			
+			<Compile Include="CP\Whatever\ReporteCP_BorrarReportesGymkana.cs" />
+			
+			
+	<Compile Include="EN\Whatever\EventoEN.cs" />
+	<Compile Include="CEN\Whatever\EventoCEN.cs" />
+	<Compile Include="CAD\Whatever\IEventoCAD.cs" />
+	<Compile Include="CAD\Whatever\EventoCAD.cs" />
+	<Compile Include="CP\Whatever\EventoCP.cs" />
+			<Compile Include="CEN\Whatever\EventoCEN_VerEvento.cs" />
+			
+			
+			
+			
+			
+			
+			
+			<Compile Include="CP\Whatever\EventoCP_CrearEvento.cs" />
+			
+			<Compile Include="CP\Whatever\EventoCP_BorrarEvento.cs" />
+			
+			<Compile Include="CP\Whatever\EventoCP_ModificarEvento.cs" />
+			
+			
+			
+	<Compile Include="EN\Whatever\PasoEN.cs" />
+	<Compile Include="CEN\Whatever\PasoCEN.cs" />
+	<Compile Include="CAD\Whatever\IPasoCAD.cs" />
+	<Compile Include="CAD\Whatever\PasoCAD.cs" />
+	<Compile Include="CP\Whatever\PasoCP.cs" />
+			<Compile Include="CEN\Whatever\PasoCEN_VerPasos.cs" />
+			
+			
+			
+			
+			
+			
+			<Compile Include="CEN\Whatever\PasoCEN_VerPaso.cs" />
+			
+			
+			<Compile Include="CP\Whatever\PasoCP_BorrarPaso.cs" />
+			
+			<Compile Include="CP\Whatever\PasoCP_ModificarPaso.cs" />
+			
+	<Compile Include="EN\Whatever\PuntuacionEN.cs" />
+	<Compile Include="CEN\Whatever\PuntuacionCEN.cs" />
+	<Compile Include="CAD\Whatever\IPuntuacionCAD.cs" />
+	<Compile Include="CAD\Whatever\PuntuacionCAD.cs" />
+	<Compile Include="CP\Whatever\PuntuacionCP.cs" />
+			
+			
+			
+			
+			
+			<Compile Include="CEN\Whatever\PuntuacionCEN_ModificarPuntuacion.cs" />
+			
+			
+			
+			
+			
+			<Compile Include="CEN\Whatever\PuntuacionCEN_VerMediaEvento.cs" />
+			
+			<Compile Include="CEN\Whatever\PuntuacionCEN_VerMediaReto.cs" />
+			
+			<Compile Include="CP\Whatever\PuntuacionCP_CrearPuntuacionParaEvento.cs" />
+			
+			<Compile Include="CP\Whatever\PuntuacionCP_CrearPuntuacionParaReto.cs" />
+			
+			
+			
+			<Compile Include="CP\Whatever\PuntuacionCP_BorrarPuntuacionEvento.cs" />
+			
+			<Compile Include="CP\Whatever\PuntuacionCP_BorrarPuntuacionReto.cs" />
+			
+			
+			
+			
+			
+			
+			<Compile Include="CEN\Whatever\PuntuacionCEN_VerMediaGymkana.cs" />
+			
+			<Compile Include="CP\Whatever\PuntuacionCP_CrearPuntuacionParaGymkana.cs" />
+			
+			
+			<Compile Include="CP\Whatever\PuntuacionCP_BorrarPuntuacionGymkana.cs" />
+			
+			
+	<Compile Include="EN\Whatever\MapaEN.cs" />
+	<Compile Include="CEN\Whatever\MapaCEN.cs" />
+	<Compile Include="CAD\Whatever\IMapaCAD.cs" />
+	<Compile Include="CAD\Whatever\MapaCAD.cs" />
+	<Compile Include="CP\Whatever\MapaCP.cs" />
+			<Compile Include="CEN\Whatever\MapaCEN_FiltrarMapa.cs" />
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			<Compile Include="CP\Whatever\MapaCP_CrearMapaParaPaso.cs" />
+			
+			<Compile Include="CP\Whatever\MapaCP_CrearMapaParaEvento.cs" />
+			
+			<Compile Include="CP\Whatever\MapaCP_BorrarMapaParaPaso.cs" />
+			
+			<Compile Include="CP\Whatever\MapaCP_BorrarMapaParaEvento.cs" />
+			
+			
+			
+			
+			
+	
+	
+
+		    
+	
+
+		    <Compile Include="Properties\AssemblyInfo.cs" />
+		    <Compile Include="Properties\Settings.Designer.cs">
+		      <AutoGen>True</AutoGen>
+		      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+		      <DependentUpon>Settings.settings</DependentUpon>
+		    </Compile>
+		  </ItemGroup>
+		  <ItemGroup>
+		  
+	<EmbeddedResource Include="Mappings\Whatever\usuario.hbm.xml" />
+	<EmbeddedResource Include="Mappings\Whatever\reto.hbm.xml" />
+	<EmbeddedResource Include="Mappings\Whatever\gymkana.hbm.xml" />
+	<EmbeddedResource Include="Mappings\Whatever\comentario.hbm.xml" />
+	<EmbeddedResource Include="Mappings\Whatever\admin.hbm.xml" />
+	<EmbeddedResource Include="Mappings\Whatever\reporte.hbm.xml" />
+	<EmbeddedResource Include="Mappings\Whatever\evento.hbm.xml" />
+	<EmbeddedResource Include="Mappings\Whatever\paso.hbm.xml" />
+	<EmbeddedResource Include="Mappings\Whatever\puntuacion.hbm.xml" />
+	<EmbeddedResource Include="Mappings\Whatever\mapa.hbm.xml" />
+	
+	
+
+		  </ItemGroup>
+		  <ItemGroup>
+		    <Content Include="hibernate.cfg.xml">
+		      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		    </Content>
+		  </ItemGroup>
+		  <ItemGroup>
+		    <None Include="app.config" />
+		    <None Include="Properties\Settings.settings">
+		      <Generator>SettingsSingleFileGenerator</Generator>
+		      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+		    </None>
+		        <None Include="Resources\xsd\nhibernate-configuration.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Resources\xsd\nhibernate-mapping.xsd">
+      <SubType>Designer</SubType>
+    </None>
+		  </ItemGroup>
+	 	
+		
+	
+		  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+		  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+		       Other similar extension points exist, see Microsoft.Common.targets.
+		  <Target Name="BeforeBuild">
+		  </Target>
+		  <Target Name="AfterBuild">
+		  </Target>
+		  -->
+		</Project>

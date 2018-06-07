@@ -1,0 +1,148 @@
+﻿@{ var eventos = ViewData["Eventos"] as IEnumerable<WhateverGenNHibernate.EN.Whatever.EventoEN>;}
+@{ var retos = ViewData["Retos"] as IEnumerable<WhateverGenNHibernate.EN.Whatever.RetoEN>;}
+@{ var gymkanas = ViewData["Gymkanas"] as IEnumerable<WhateverGenNHibernate.EN.Whatever.GymkanaEN>;}
+@{
+    ViewBag.Title = "Página Principal";
+}
+<div class="row center-align">
+    <div class="col s12 m12 l12">
+        <ul class="tabs" id="tabla2">
+            <li class="tab col s4"><a href="#test2">Retos recientes</a></li>
+            <li class="tab col s4"><a class="active" href="#test1">Eventos recientes</a></li>
+            <li class="tab col s4"><a href="#test3">Gymkanas recientes</a></li>
+        </ul>
+    </div>
+    <div id="test1" class="col s12 m12 l12">
+        @if (eventos.Count() > 0)
+        {
+            foreach (var item in eventos)
+            {
+                <div class="col s12">
+                    <div class="card horizontal">
+                        <div class="card-image">
+                            <img src="~/Images/evento.png" height="180">
+                        </div>
+                        <div class="card-stacked">
+                            <div class="card-content" style="text-align: left;">
+                                <h4 class="header">@Html.ActionLink(item.Titulo, "Details", "Evento", new { id = item.ID }, new { })</h4>
+                                <p>@Html.DisplayFor(modelItem => item.Descripcion)</p>
+                            </div>
+                            <div class="card-action" style="text-align: left;">
+                                <b>Fecha:</b> @Html.DisplayFor(modelItem => item.Fecha) -
+                                <b>Precio:</b> @Html.DisplayFor(modelItem => item.Precio)
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+        else
+        {
+            <div class="preloader-wrapper big active" style="margin-top: 20px;">
+                <div class="spinner-layer spinner-blue-only">
+                    <div class="circle-clipper left">
+                        <div class="circle"></div>
+                    </div>
+                    <div class="gap-patch">
+                        <div class="circle"></div>
+                    </div>
+                    <div class="circle-clipper right">
+                        <div class="circle"></div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+    <div id="test2" class="col s12 m12 l12">
+        @if (retos.Count() > 0)
+        {
+            foreach (var item in retos)
+            {
+                <div class="col s12">
+                    <div class="card horizontal">
+                        <div class="card-image">
+                            @if (item.Imagen != "/Images/Uploads/")
+                            {
+                            <img src="@Html.DisplayFor(modelItem => item.Imagen)" height="180"/>
+                            }
+                            else
+                            {
+                                <img src="~/Images/retos.jpg" height="180" />
+                            }
+                        </div>
+                        <div class="card-stacked">
+                            <div class="card-content" style="text-align: left;">
+                                <h4 class="header">@Html.ActionLink(item.Titulo, "Details", "Reto", new { id = item.ID }, new { })</h4>
+                                <p>@Html.DisplayFor(modelItem => item.Descripcion)</p>
+                            </div>
+                            <div class="card-action" style="text-align: left;">
+                                <b>Tipo:</b> @Html.DisplayFor(modelItem => item.Tipo) -
+                                <b>Precio:</b> @Html.DisplayFor(modelItem => item.Precio)
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+        else
+        {
+            <div class="preloader-wrapper big active" style="margin-top: 20px;">
+                <div class="spinner-layer spinner-blue-only">
+                    <div class="circle-clipper left">
+                        <div class="circle"></div>
+                    </div>
+                    <div class="gap-patch">
+                        <div class="circle"></div>
+                    </div>
+                    <div class="circle-clipper right">
+                        <div class="circle"></div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+    <div id="test3" class="col s12 m12 l12">
+        @if (gymkanas.Count() > 0)
+        {
+            foreach (var item in gymkanas)
+            {
+                <div class="col s12">
+                    <div class="card horizontal">
+                        <div class="card-image">
+                            <img src="http://lorempixel.com/100/190/nature/6">
+                        </div>
+                        <div class="card-stacked">
+                            <div class="card-content" style="text-align: left;">
+                                <h4 class="header">@Html.ActionLink(item.Titulo, "Details", "Gymkana", new { id = item.ID }, new { })</h4>
+                                <p>@Html.DisplayFor(modelItem => item.Descripcion)</p>
+                            </div>
+                            <div class="card-action" style="text-align: left;">
+                                <b>Fecha:</b> @Html.DisplayFor(modelItem => item.Fecha) -
+                                <b>Precio:</b> @Html.DisplayFor(modelItem => item.Precio)
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+        else
+        {
+            <div class="preloader-wrapper big active" style="margin-top: 20px;">
+                <div class="spinner-layer spinner-blue-only">
+                    <div class="circle-clipper left">
+                        <div class="circle"></div>
+                    </div>
+                    <div class="gap-patch">
+                        <div class="circle"></div>
+                    </div>
+                    <div class="circle-clipper right">
+                        <div class="circle"></div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+<script>
+    $('#tabla2').tabs();
+</script>

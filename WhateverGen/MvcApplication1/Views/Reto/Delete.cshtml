@@ -1,0 +1,16 @@
+﻿@model MvcApplication1.Models.Reto
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Borrar</h2>
+
+<h3>¿Deseas borrar el evento @Html.DisplayFor(model => model.Titulo)?</h3>
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    <p>
+        <input type="submit" value="Delete" class="waves-effect waves-light btn"/> 
+        @Html.ActionLink("Volver a Retos", "Index", "Reto", new { }, new { @class = "waves-effect waves-light white-text btn marme" })
+    </p>
+}

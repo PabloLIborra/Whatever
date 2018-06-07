@@ -1,0 +1,36 @@
+﻿@model IEnumerable<WhateverGenNHibernate.EN.Whatever.ComentarioEN>
+
+@{
+    ViewBag.Title = "ComentarioReto";
+}
+
+<h2>Comentarios en Retos</h2>
+
+
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Texto)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Creador)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Texto)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Creador)
+        </td>
+        <td>
+            @Html.ActionLink("Borrar", "Delete", "Comentario",  new { id = item.ID }, new { @class = "waves-effect waves-light white-text btn marme" }) 
+            @Html.ActionLink("Volver al Reto", "Details", "Reto", new { id = item.Reto.ID }, new { @class = "waves-effect waves-light white-text btn marme" })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,30 @@
+﻿@model IEnumerable<WhateverGenNHibernate.EN.Whatever.ReporteEN>
+
+@{
+    ViewBag.Title = "Ver reportes de Gymkana";
+}
+
+<h2>Ver reportes de Gymkana</h2>
+
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Motivo)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Motivo)
+        </td>
+        <td>
+            @Html.ActionLink("Detalles", "Details", "Reporte", new { id = item.ID }, new { @class = "waves-effect waves-light white-text btn marme" })
+            @Html.ActionLink("Delete", "Delete", "Reporte", new { id = item.ID }, new { @class = "waves-effect waves-light white-text btn marme" })
+            @Html.ActionLink("Volver a la Gymkana", "Details", "Gymkana", new { id = item.Gymkana.ID }, new { @class = "waves-effect waves-light white-text btn marme" })
+        </td>
+    </tr>
+}
+
+</table>

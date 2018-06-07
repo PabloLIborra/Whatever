@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8" ?>
+		<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+		                   assembly="WhateverGenNHibernate"
+		                   namespace="WhateverGenNHibernate.EN.Whatever">
+		    
+		    
+			
+				<class name="ComentarioEN" table="Comentario"> 
+				  	
+						<id name="ID" column="ID" type="integer"> 
+							<generator class="hilo"/>
+						</id>
+			
+					
+					<property name="Texto" type="string"> 
+						<column name="texto"  not-null="true"/>
+					</property>
+					<property name="Creador" type="string"> 
+						<column name="creador"  not-null="true"/>
+					</property>
+			
+			
+			
+			
+			
+		  			
+						<many-to-one name="Usuario" class="WhateverGenNHibernate.EN.Whatever.UsuarioEN" >	
+								<column name="FK_ID_idUsuario"/> 
+						</many-to-one>
+											 					
+			
+		  			
+						<many-to-one name="Evento" class="WhateverGenNHibernate.EN.Whatever.EventoEN" >	
+								<column name="FK_ID_idEvento"/> 
+						</many-to-one>
+											 					
+			
+		  			
+						<many-to-one name="Reto" class="WhateverGenNHibernate.EN.Whatever.RetoEN" >	
+								<column name="FK_id_idComentario_0"/> 
+						</many-to-one>
+											 					
+			
+		  			
+						<many-to-one name="Gymkana" class="WhateverGenNHibernate.EN.Whatever.GymkanaEN" >	
+								<column name="FK_IDGymkana_idGymkana"/> 
+						</many-to-one>
+											 					
+					
+					
+					
+					
+					
+					
+					
+		
+		 </class>	
+		  
+		  <query name="ComentarioENReadAllHQL">from ComentarioEN</query>
+		  <query name="ComentarioENfiltrarComentarioPorUsuarioHQL"><![CDATA[FROM ComentarioEN as com WHERE com.Usuario.ID=:id_usuario]]></query>
+		  <query name="ComentarioENfiltrarComentarioPorRetoHQL"><![CDATA[FROM ComentarioEN as com WHERE com.Reto.ID=:id_reto]]></query>
+		  <query name="ComentarioENFiltrarComentarioPorEventoHQL"><![CDATA[FROM ComentarioEN as com WHERE com.Evento.ID=:id_evento]]></query>
+		  <query name="ComentarioENFiltrarComentarioPorGymkanaHQL"><![CDATA[FROM ComentarioEN as com WHERE com.Gymkana.ID=:id_gym]]></query>
+		</hibernate-mapping>
+	

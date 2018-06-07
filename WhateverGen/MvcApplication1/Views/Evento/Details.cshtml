@@ -1,0 +1,77 @@
+﻿@model MvcApplication1.Models.Evento
+
+@{
+    ViewBag.Title = "Detalles";
+}
+
+<h2>Detalles @Html.DisplayFor(model => model.Titulo)</h2>
+
+<fieldset>
+    <legend>Evento</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Titulo)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Titulo)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Descripcion)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Descripcion)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Fecha)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Fecha)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Precio)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Precio)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Creador)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Creador)
+    </div>
+    
+</fieldset>
+
+<h3>Mapa</h3>
+<div id="map" style="height: 600px; "></div>
+<p>
+    @Html.ActionLink("Editar", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Comentar", "CreateEvento", "Comentario", new { id = Model.id }, "null") |
+    @Html.ActionLink("Ver Comentarios", "ComentarioEvento", "Comentario", new { id = Model.id }, "null") |
+    @Html.ActionLink("Puntuar", "CreateEvento", "Puntuacion", new { id = Model.id }, "null") |
+    @Html.ActionLink("Reportar", "CreateEvento", "Reporte", new { id = Model.id }, "null") |
+    @Html.ActionLink("Ver reportes", "IndexEvento", "Reporte", new { id = Model.id }, "null") |
+    @Html.ActionLink("Ver puntuaciones", "PuntuacionEvento", "Puntuacion", new { id = Model.id }, "null") |
+    @Html.ActionLink("Volver a Eventos", "List") 
+</p>
+
+
+<script>
+    //var titulo = document.getElementById("lat").innerHTML;
+    //var latitud = parseFloat(document.getElementById("lat").innerHTML);
+    //var longitud = parseFloat(document.getElementById("lon").innerHTML);
+
+    var titulo = "@Html.DisplayFor(model => model.Titulo)";
+    var descripcion = "@Html.DisplayFor(model => model.Descripcion)";
+    var latitud = parseFloat("@Html.DisplayFor(model => model.Latitud)");
+    var longitud = parseFloat("@Html.DisplayFor(model => model.Longitud)");
+</script>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/mapadetail")
+}
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAQw5mBOiJP88UP8TbwysOHmKg0NFRS2Rg"></script>

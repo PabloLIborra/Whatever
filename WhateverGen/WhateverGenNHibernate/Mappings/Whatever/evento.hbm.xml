@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8" ?>
+		<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+		                   assembly="WhateverGenNHibernate"
+		                   namespace="WhateverGenNHibernate.EN.Whatever">
+		    
+		    
+			
+				<class name="EventoEN" table="Evento"> 
+				  	
+						<id name="ID" column="ID" type="integer"> 
+							<generator class="hilo"/>
+						</id>
+			
+					
+					<property name="Titulo" type="string"> 
+						<column name="Titulo"  not-null="true"/>
+					</property>
+					<property name="Descripcion" type="string"> 
+						<column name="descripcion"  not-null="true"/>
+					</property>
+					<property name="Fecha" type="date"> 
+						<column name="fecha"  not-null="true"/>
+					</property>
+					<property name="Precio" type="double"> 
+						<column name="precio"  not-null="true"/>
+					</property>
+			
+			
+			
+			
+			
+			
+			
+		  			
+						<many-to-one name="Usuario" class="WhateverGenNHibernate.EN.Whatever.UsuarioEN" >	
+								<column name="FK_ID_idUsuario"/> 
+						</many-to-one>
+											 					
+			
+		  			
+						<bag name="Puntuacion" >
+							<key>
+							
+								
+								<column name="FK_ID_idEvento"/>
+					      	</key>
+							<one-to-many class="WhateverGenNHibernate.EN.Whatever.PuntuacionEN"/>
+					    </bag>
+					
+			
+		  			
+					
+							   <one-to-one name="Mapa" class="WhateverGenNHibernate.EN.Whatever.MapaEN" property-ref="Evento" />							
+					 
+						
+			
+		  			
+						<bag name="Comentario" >
+							<key>
+							
+								
+								<column name="FK_ID_idEvento"/>
+					      	</key>
+							<one-to-many class="WhateverGenNHibernate.EN.Whatever.ComentarioEN"/>
+					    </bag>
+					
+			
+		  			
+						<bag name="Reporte" >
+							<key>
+							
+								
+								<column name="FK_ID_idEvento"/>
+					      	</key>
+							<one-to-many class="WhateverGenNHibernate.EN.Whatever.ReporteEN"/>
+					    </bag>
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+		
+		 </class>	
+		  
+		  <query name="EventoENReadAllHQL">from EventoEN</query>
+		  <query name="EventoENfiltrarEventoPorUsuarioHQL"><![CDATA[FROM EventoEN as ev WHERE ev.Usuario.ID=:id_usu]]></query>
+		</hibernate-mapping>
+	

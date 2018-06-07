@@ -1,0 +1,39 @@
+﻿@model MvcApplication1.Models.Paso
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Paso</legend>
+
+    
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Descripcion)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Descripcion)
+    </div>
+
+    
+</fieldset>
+
+<h3>Mapa</h3>
+<div id="map" style="height: 600px; "></div>
+<script>
+    //var titulo = document.getElementById("lat").innerHTML;
+    //var latitud = parseFloat(document.getElementById("lat").innerHTML);
+    //var longitud = parseFloat(document.getElementById("lon").innerHTML);
+
+    var descripcion = "@Html.DisplayFor(model => model.Descripcion)";
+    var latitud = parseFloat("@Html.DisplayFor(model => model.Latitud)");
+    var longitud = parseFloat("@Html.DisplayFor(model => model.Longitud)");
+</script>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/mapadetail")
+}
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAQw5mBOiJP88UP8TbwysOHmKg0NFRS2Rg"></script>

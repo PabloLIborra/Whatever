@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8" ?>
+		<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+		                   assembly="WhateverGenNHibernate"
+		                   namespace="WhateverGenNHibernate.EN.Whatever">
+		    
+		    
+			
+				<class name="ReporteEN" table="Reporte"> 
+				  	
+						<id name="ID" column="ID" type="integer"> 
+							<generator class="hilo"/>
+						</id>
+			
+					
+					<property name="Motivo" type="string"> 
+						<column name="motivo"  not-null="true"/>
+					</property>
+			
+			
+			
+			
+		  			
+						<many-to-one name="Usuario" class="WhateverGenNHibernate.EN.Whatever.UsuarioEN" >	
+								<column name="FK_ID_idUsuario"/> 
+						</many-to-one>
+											 					
+			
+		  			
+						<many-to-one name="Reto" class="WhateverGenNHibernate.EN.Whatever.RetoEN" >	
+								<column name="FK_id_idReporte_0"/> 
+						</many-to-one>
+											 					
+			
+		  			
+						<many-to-one name="Evento" class="WhateverGenNHibernate.EN.Whatever.EventoEN" >	
+								<column name="FK_ID_idEvento"/> 
+						</many-to-one>
+											 					
+			
+		  			
+						<many-to-one name="Gymkana" class="WhateverGenNHibernate.EN.Whatever.GymkanaEN" >	
+								<column name="FK_IDGymkana_idGymkana"/> 
+						</many-to-one>
+											 					
+					
+					
+					
+					
+					
+					
+		
+		 </class>	
+		  
+		  <query name="ReporteENReadAllHQL">from ReporteEN</query>
+		  <query name="ReporteENfiltrarReportePorEventoYUsuarioHQL"><![CDATA[FROM ReporteEN as rep WHERE rep.Evento.ID=:id_evento and rep.Usuario.ID=:id_usuario]]></query>
+		  <query name="ReporteENfiltrarReportePorRetoYUsuarioHQL"><![CDATA[FROM ReporteEN as rep WHERE rep.Reto.ID=:id_reto and rep.Usuario.ID=:id_usuario]]></query>
+		  <query name="ReporteENfiltrarReportesPorEventoHQL"><![CDATA[FROM ReporteEN as rep WHERE rep.Evento.ID=:id_evento]]></query>
+		  <query name="ReporteENfiltrarReportesPorRetoHQL"><![CDATA[FROM ReporteEN as rep WHERE rep.Reto.ID=:id_reto]]></query>
+		  <query name="ReporteENfiltrarReportesPorUsuarioHQL"><![CDATA[FROM ReporteEN as rep WHERE rep.Usuario.ID=:id_usuario]]></query>
+		  <query name="ReporteENfiltrarReportePorGymkanaYUsuarioHQL"><![CDATA[FROM ReporteEN as rep WHERE rep.Gymkana.ID=:id_gym and rep.Usuario.ID=:id_usuario]]></query>
+		  <query name="ReporteENfiltrarReportesPorGymkanaHQL"><![CDATA[FROM ReporteEN as rep WHERE rep.Gymkana.ID=:id_gym]]></query>
+		</hibernate-mapping>
+	

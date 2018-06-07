@@ -1,0 +1,71 @@
+﻿@model MvcApplication1.Models.RegisterModel
+@{
+    ViewBag.Title = "Registrese";
+}
+
+<hgroup class="title">
+    <h1>@ViewBag.Title.</h1>
+    <h2>Cree una cuenta nueva.</h2>
+</hgroup>
+
+@using (Html.BeginForm("Register", "Account", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary()
+    
+        <ul>
+            <li>
+                @Html.LabelFor(m => m.UserName)
+                @Html.TextBoxFor(m => m.UserName)
+            </li>
+            <li>
+                @Html.LabelFor(m => m.Password)
+                @Html.PasswordFor(m => m.Password)
+            </li>
+            <li>
+                @Html.LabelFor(m => m.ConfirmPassword)
+                @Html.PasswordFor(m => m.ConfirmPassword)
+            </li>
+            <li>
+                @Html.LabelFor(m => m.Edad)
+                @Html.TextBoxFor(m => m.Edad)
+            </li>
+            <li>
+                @Html.LabelFor(m => m.sexo)
+                @Html.TextBoxFor(m => m.sexo)
+            </li>
+            <li>
+                @Html.LabelFor(m => m.Email)
+                @Html.TextBoxFor(m => m.Email)
+            </li>
+            <li>
+                @Html.LabelFor(m => m.Foto)
+                <div class="file-field input-field">
+                    <div class="btn">
+                        <span>Seleccionar archivo</span>
+                        <input type="file">
+                    </div>
+                    <div class="file-path-wrapper">
+                        <input class="file-path validate" type="text">
+                    </div>
+                </div>
+            </li>
+            <li>
+                @Html.LabelFor(m => m.Facebook)
+                @Html.TextBoxFor(m => m.Facebook)
+            </li>
+            <li>
+                @Html.LabelFor(m => m.Instagram)
+                @Html.TextBoxFor(m => m.Instagram)
+            </li>
+            <li>
+                @Html.LabelFor(m => m.Twitter)
+                @Html.TextBoxFor(m => m.Twitter)
+            </li>
+        </ul>
+        <input type="submit" value="Registrarse" class="waves-effect waves-light btn"  />
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

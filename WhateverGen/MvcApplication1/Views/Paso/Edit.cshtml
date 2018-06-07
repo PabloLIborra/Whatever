@@ -1,0 +1,67 @@
+﻿@model MvcApplication1.Models.Paso
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Paso</legend>
+
+
+       
+        <div class="editor-field">
+            @Html.HiddenFor(model => model.idGymkana)
+            @Html.ValidationMessageFor(model => model.idGymkana)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Descripcion)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Descripcion)
+            @Html.ValidationMessageFor(model => model.Descripcion)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Latitud)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Latitud)
+            @Html.ValidationMessageFor(model => model.Latitud)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Longitud)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Longitud)
+            @Html.ValidationMessageFor(model => model.Longitud)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Zoom)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Zoom)
+            @Html.ValidationMessageFor(model => model.Zoom)
+        </div>
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Volver a los Pasos", "Index", new { id = Model.idGymkana })
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
